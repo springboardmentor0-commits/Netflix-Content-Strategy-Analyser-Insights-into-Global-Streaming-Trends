@@ -5,28 +5,29 @@ This project analyzes the Netflix dataset using Python, Pandas, Plotly, and Stre
 
 ## Milestones
 
-### Milestone 1 – Requirements & Dataset Preparation
-- Collected the Netflix dataset.
-- Explored the dataset structure.
-- Identified missing values and duplicates.
-- Prepared the dataset for analysis.
+### Milestone 1: Requirements & Dataset Preparation (Week 1 & 2)
+- Defined the project scope and success metrics.
+- Loaded the Netflix Kaggle dataset.
+- Cleaned the dataset by handling missing values and removing duplicates.
+- Normalized categorical features such as genre, rating, and country.
 
-### Milestone 2 – Data Cleaning & Preprocessing
-- Removed duplicate records.
-- Handled missing values.
-- Converted date columns into the correct format.
-- Saved the cleaned dataset.
+### Milestone 2: EDA & Feature Engineering (Week 3 & 4)
+- Analyzed Netflix content growth over time.
+- Visualized the distribution of genres, ratings, and content types.
+- Identified country-wise content contributions.
+- Created derived features such as Content Length Category and Original vs. Licensed.
 
-### Milestone 3 – Exploratory Data Analysis (EDA)
-- Analyzed Movies vs TV Shows.
-- Visualized content added per year.
-- Analyzed rating distribution.
-- Created interactive charts using Plotly.
+### Milestone 3: Modeling & Advanced Analysis (Week 5 & 6)
+- Applied K-Means clustering to group Netflix titles.
+- Built a Random Forest classifier to predict Movie or TV Show.
+- Analyzed key factors influencing content availability.
+- Used feature importance to interpret the model.
 
-### Milestone 4 – Dashboard Development
-- Developed an interactive dashboard using Streamlit.
-- Added filters for content type.
-- Displayed interactive charts and insights.
+### Milestone 4: Dashboard, Integration & Deployment (Week 7 & 8)
+- Developed an interactive Streamlit dashboard.
+- Added filters for year, genre, country, and content type.
+- Displayed insights such as top genres, country-wise content distribution, and ratings analysis.
+- Tested and prepared the dashboard for deployment.
 
 ## Features
 - Data Cleaning
@@ -63,7 +64,6 @@ Netflix_Content_Analysis/
 1. Install the required packages:
 
 pip install pandas numpy matplotlib seaborn scikit-learn plotly streamlit
-
 
 2. Run the Streamlit dashboard:
 
