@@ -1,5 +1,4 @@
 # Netflix-Content-Strategy-Analyser-Insights-into-Global-Streaming-Trends
-# Netflix-Content-Strategy-Analyser-Insights-into-Global-Streaming-Trends
 
 ## Project Description
 This project analyzes the Netflix dataset using Python, Pandas, Plotly, and Streamlit. It provides interactive visualizations and insights into global streaming trends, including content types, ratings, release years, and content growth.
