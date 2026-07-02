@@ -70,5 +70,3 @@ pip install pandas numpy matplotlib seaborn scikit-learn plotly streamlit
 streamlit run app.py
 
 
-## Author
-Amrutha TR
