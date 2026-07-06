@@ -100,29 +100,9 @@ kmeans = KMeans(
 
 clusters = kmeans.fit_predict(scaled_data)
 
-# Save cluster labels
 df["Cluster"] = clusters
 
-# ==========================================
-# Cluster Summary
-# ==========================================
-
-print("\n===== Cluster Summary =====")
-
-for cluster in sorted(df["Cluster"].unique()):
-    print(f"\nCluster {cluster}")
-    cluster_data = df[df["Cluster"] == cluster]
-
-    print("Content Type:")
-    print(cluster_data["type"].value_counts())
-
-    print("\nTop Countries:")
-    print(cluster_data["country"].value_counts().head(5))
-
-    print("\nTop Genres:")
-    print(cluster_data["listed_in"].value_counts().head(5))
-
-    print("-" * 50)
+print(df[["title","Cluster"]].head())
 
 # ==========================================
 # PCA Visualization
@@ -236,5 +216,4 @@ df.to_csv(
     index=False
 )
 
-print("\nMilestone 3 Completed Successfully! Output saved to 'netflix_milestone3_output.csv'.")
-      
+print("\nMilestone 3 Completed Successfully!")      
