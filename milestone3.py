@@ -24,7 +24,7 @@ from sklearn.metrics import (
 # Load Dataset
 # ==========================================
 
-df = pd.read_csv("cleaned_netflix_titles.csv")
+df = pd.read_csv("netflix_feature_engineered.csv")
 
 print(df.head())
 print(df.info())
