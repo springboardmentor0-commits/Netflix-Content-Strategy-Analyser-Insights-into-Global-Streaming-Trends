@@ -43,4 +43,4 @@ streamlit run milestone4.py
 
 ## Author
 
-Arjun N
+Arjun Ngit
