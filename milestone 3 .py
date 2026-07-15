@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import joblib as joblib
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
@@ -104,7 +104,8 @@ df["Cluster"]  = clusters
 
 # Save cluster labels
 df["Cluster"] = clusters
-
+joblib.dump(kmeans, "clustering_model.pkl")
+print("Clustering model saved successfully.")
 # ==========================================
 # Cluster Summary
 # ==========================================
@@ -204,30 +205,28 @@ plt.ylabel("Actual")
 
 plt.savefig("confusion_matrix.png")
 plt.show()
-
+joblib.dump(model, "classification_model.pkl")
+print("Classification model saved successfully.")
 # ==========================================
 # Feature Importance
 # ==========================================
 
-importance = pd.Series(
-    model.feature_importances_,
-    index=X.columns
+importance = pd.DataFrame({
+    "Feature": X_train.columns,
+    "Importance": model.feature_importances_
+})
+
+importance = importance.sort_values(
+    by="Importance",
+    ascending=False
 )
 
-importance = importance.sort_values(ascending=False)
+importance.to_csv(
+    "feature_importance.csv",
+    index=False
+)
 
-plt.figure(figsize=(10,8))
-
-importance.head(15).plot(kind="barh")
-
-plt.title("Top 15 Important Features")
-
-plt.savefig("feature_importance.png")
-
-plt.show()
-
-print("\nTop Important Features")
-print(importance.head(15))
+print("Feature importance saved.")
 
 # ==========================================
 # Save Final Dataset
