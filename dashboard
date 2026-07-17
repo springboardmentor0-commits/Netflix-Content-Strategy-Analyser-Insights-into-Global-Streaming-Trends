@@ -1,0 +1,53 @@
+import streamlit as st
+import pandas as pd
+import joblib
+
+st.set_page_config(page_title="Netflix Analytics Dashboard", layout="wide")
+
+st.title("🎬 Netflix Analytics Dashboard")
+
+# Load model and encoders
+model = joblib.load("model.pkl")
+country_encoder = joblib.load("country_encoder.pkl")
+genre_encoder = joblib.load("genre_encoder.pkl")
+target_encoder = joblib.load("target_encoder.pkl")
+
+# Load dataset
+df = pd.read_csv("netflix_titles_cleaned.csv")
+
+# User Inputs
+st.subheader("Predict Content Type")
+
+country = st.selectbox(
+    "Country",
+    sorted(country_encoder.classes_)
+)
+
+genre = st.selectbox(
+    "Genre",
+    sorted(genre_encoder.classes_)
+)
+
+release_year = st.number_input(
+    "Release Year",
+    min_value=1950,
+    max_value=2026,
+    value=2020
+)
+
+if st.button("Predict"):
+
+    try:
+        country_value = country_encoder.transform([country])[0]
+        genre_value = genre_encoder.transform([genre])[0]
+
+        prediction = model.predict(
+            [[release_year, country_value, genre_value]]
+        )
+
+        result = target_encoder.inverse_transform(prediction)
+
+        st.success(f"Predicted Content Type: {result[0]}")
+
+    except Exception as e:
+        st.error(f" Error: {str(e)}")
